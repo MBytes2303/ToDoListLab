@@ -1,13 +1,14 @@
-import { StatusBar } from "expo-status-bar";
-import { ScrollView } from "react-native";
+import { useState } from "react";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 import Todoform from "./custom/Todoform";
 import Todolist from "./custom/Todolist";
 
 export default function App() {
+  const [tasks, setTasks] = useState(["Do Laundry", "Go to gym", "Walk Dog"]);
+
   return (
     <SafeAreaView style={styles.container}>
-      <Todolist />
+      <Todolist tasks={tasks} />
       <Todoform />
     </SafeAreaView>
   );
