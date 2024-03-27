@@ -4,6 +4,11 @@ import React, { useState } from "react";
 export default function Todoform({ addTask }) {
   const [taskText, setTastText] = useState("");
 
+  const addToList = () => {
+    addTask(taskText);
+    setTastText("");
+  };
+
   return (
     <View style={styles.form}>
       <TextInput
@@ -12,7 +17,7 @@ export default function Todoform({ addTask }) {
         onChangeText={(text) => setTastText(text)}
         value={taskText}
       />
-      <Button title="Add Item" onPress={() => addTask(taskText)} />
+      <Button title="Add Item" onPress={addToList} />
     </View>
   );
 }
