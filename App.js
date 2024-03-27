@@ -6,10 +6,14 @@ import Todolist from "./custom/Todolist";
 export default function App() {
   const [tasks, setTasks] = useState(["Do Laundry", "Go to gym", "Walk Dog"]);
 
+  const addTask = (taskText) => {
+    setTasks([...tasks, taskText]);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Todolist tasks={tasks} />
-      <Todoform />
+      <Todoform addTask={addTask} />
     </SafeAreaView>
   );
 }
